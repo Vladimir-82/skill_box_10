@@ -21,20 +21,20 @@ ENLIGHTENMENT_CARMA_LEVEL = 777
 import random
 def one_day():
     dice = random.randint(1, 13)
-    if dice == 8:
-        raise IamGodError('Сегодня я бог!')
-    elif dice == 9:
-        raise DrunkError('Сегодня я напился!')
-    elif dice == 10:
-        raise CarCrashError('Сегодня я попал в автокатастрофу!')
-    elif dice == 11:
-        raise GluttonyError('Сегодня я обожрался!')
-    elif dice == 12:
-        raise DepressionError('Сегодня я плачу!')
-    elif dice == 13:
-        raise SuicideError('Сегодня я стреляю в голову!')
-    else:
-        return dice
+    # if dice == 8:
+    #     raise IamGodError('Сегодня я бог!')
+    # elif dice == 9:
+    #     raise DrunkError('Сегодня я бог!')
+    # elif dice == 10:
+    #     raise CarCrashError('Сегодня я бог!')
+    # elif dice == 11:
+    #     raise GluttonyError('Сегодня я бог!')
+    # elif dice == 12:
+    #     raise DepressionError('Сегодня я бог!')
+    # elif dice == 13:
+    #     raise SuicideError('Сегодня я бог!')
+    # else:
+    return dice
 
 carma_file = 'carma.txt'
 file = open(carma_file, mode='w', encoding='utf8')
@@ -44,18 +44,8 @@ while True:
     file.write(f'\n ******День - {day}******')
     try:
         total_carma += one_day()
-    except IamGodError as God:
-        file.write(f'\n Бог {God}')
-    except DrunkError as Drunk:
-        file.write(f'\n Напился {Drunk}')
-    except CarCrash as Car:
-        file.write(f'\n Я Шумахер {Car}')
-    except GluttonyError as Glut:
-        file.write(f'\n Пережрал {Glut}')
-    except DepressionError as Depress:
-        file.write(f'\n Депрессия {Depress}')
-    except SuicideError as Suicide:
-        file.write(f'\n Я депрессирую {Suicide}')
+    except:
+        print('Все ошибки')
     file.write(f'\n Карвма просветления составляет: {total_carma}')
     # print(total_carma)
     day += 1
