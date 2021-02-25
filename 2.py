@@ -22,10 +22,12 @@ import random
 
 
 class IamGodError(Exception):
-    pass
+    def __init__(self, messange):# переопределим параметр исключения в созданном исключении
+        self.messange = 'А может, лучше черт?'
+    def __str__(self):
+        return self.messange
 
-
-class DrunkError(Exception):
+class DrunkError(Exception): # подтягивает из параметра в созданном исключении
     pass
 
 
