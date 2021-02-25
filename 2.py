@@ -19,39 +19,75 @@
 
 ENLIGHTENMENT_CARMA_LEVEL = 777
 import random
+
+
+class IamGodError(Exception):
+    pass
+
+
+class DrunkError(Exception):
+    pass
+
+
+class CarCrashError(Exception):
+    pass
+
+
+class GluttonyError(Exception):
+    pass
+
+
+class DepressionError(Exception):
+    pass
+
+
+class SuicideError(Exception):
+    pass
+
+
 def one_day():
     dice = random.randint(1, 13)
-    # if dice == 8:
-    #     raise IamGodError('Сегодня я бог!')
-    # elif dice == 9:
-    #     raise DrunkError('Сегодня я бог!')
-    # elif dice == 10:
-    #     raise CarCrashError('Сегодня я бог!')
-    # elif dice == 11:
-    #     raise GluttonyError('Сегодня я бог!')
-    # elif dice == 12:
-    #     raise DepressionError('Сегодня я бог!')
-    # elif dice == 13:
-    #     raise SuicideError('Сегодня я бог!')
-    # else:
-    return dice
+    if dice == 8:
+        raise IamGodError('Сегодня я бог!')
+    elif dice == 9:
+        raise DrunkError('Сегодня я напился!')
+    elif dice == 10:
+        raise CarCrashError('Сегодня я Шумахер!')
+    elif dice == 11:
+        raise GluttonyError('Сегодня я кушаю!')
+    elif dice == 12:
+        raise DepressionError('Сегодня я в депрессии!')
+    elif dice == 13:
+        raise SuicideError('Сегодня я стреляю себе в голову!')
+    else:
+        file.write(f'\n Я очищаюсь!!!')
+        return dice
 
 carma_file = 'carma.txt'
-file = open(carma_file, mode='w', encoding='utf8')
-day = 1
-total_carma = 0
-while True:
-    file.write(f'\n ******День - {day}******')
-    try:
-        total_carma += one_day()
-    except:
-        print('Все ошибки')
-    file.write(f'\n Карвма просветления составляет: {total_carma}')
-    # print(total_carma)
-    day += 1
-    if total_carma >= ENLIGHTENMENT_CARMA_LEVEL:
-        file.write(f'\n Вы освободились от кармы за {day - 1} дней!')
-        break
+with open(carma_file, mode='w', encoding='utf8') as file:
+    day = 1
+    total_carma = 0
+    while True:
+        file.write(f'\n ******День - {day}******')
+        try:
+            total_carma += one_day()
+        except IamGodError as god:
+            file.write(f'\n {god}')
+        except DrunkError as drunk:
+            file.write(f'\n {drunk}')
+        except CarCrashError as car:
+            file.write(f'\n {car}')
+        except GluttonyError as glut:
+            file.write(f'\n {glut}')
+        except DepressionError as depress:
+            file.write(f'\n {depress}')
+        except SuicideError as suic:
+            file.write(f'\n {suic}')
+        file.write(f'\n Карма просветления составляет: {total_carma}\n')
+        day += 1
+        if total_carma >= ENLIGHTENMENT_CARMA_LEVEL:
+            file.write(f'\n Вы освободились от кармы за {day - 1} дней!')
+            break
 
 
 # https://goo.gl/JnsDqu
