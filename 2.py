@@ -22,12 +22,15 @@ import random
 
 
 class IamGodError(Exception):
-    def __init__(self, messange):# переопределим параметр исключения в созданном исключении
-        self.messange = 'А может, лучше черт?'
+    def __init__(self, messange):
+        self.messange = messange
+        self.messange = 'А может, лучше черт?'  # переопределим параметр исключения в созданном исключении
+
     def __str__(self):
         return self.messange
 
-class DrunkError(Exception): # подтягивает из параметра в созданном исключении
+
+class DrunkError(Exception):  # подтягивает из параметра в созданном исключении
     pass
 
 
@@ -65,6 +68,7 @@ def one_day():
         file.write(f'\n Я очищаюсь!!!')
         return dice
 
+
 carma_file = 'carma.txt'
 with open(carma_file, mode='w', encoding='utf8') as file:
     day = 1
@@ -90,6 +94,5 @@ with open(carma_file, mode='w', encoding='utf8') as file:
         if total_carma >= ENLIGHTENMENT_CARMA_LEVEL:
             file.write(f'\n Вы освободились от кармы за {day - 1} дней!')
             break
-
 
 # https://goo.gl/JnsDqu
