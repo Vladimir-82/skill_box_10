@@ -22,11 +22,7 @@ def adder(num_1, num_2):
                 counter += 1
                 answer = str(result)[-1] + answer
                 num_1, num_2 = num_1[:-1], num_2[:-1]
-
-                if num_1 == 9 and num_2 == 9:
-
-
-                elif num_1 and num_2:
+                if num_1 and num_2:
                     num_1 = int(num_1) + 1
                     num_1 = str(num_1)
                 elif not num_2:
